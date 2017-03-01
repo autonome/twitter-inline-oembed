@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Twitter inline oembed test</title>
+  <title>Twitter Inline Oembeds</title>
 
   <!-- Update your html tag to include the itemscope and itemtype attributes. -->
   <!--<html itemscope itemtype="http://schema.org/Webpage">-->
@@ -46,15 +46,40 @@
 <body>
 
 <h1>Twitter Inline Oembeds</h1>
+<h2>Easily embed Tweets inline in your web pages</h2>
 
-<h2>Text</h2>
+<p>NOTE: Twitter embedded content doesn't render at all if you're running tracking blockers.</p>
+
+<p>Code and docs: <a href="https://github.com/autonome/twitter-inline-oembed">https://github.com/autonome/twitter-inline-oembed</a>
+
+<h2>Usage</h2>
+
+<p>
+1. Add oembed.js to your project
+</p>
+
+<blockquote><pre><code>
+npm install twitter-inline-oembed
+</code></pre></blockquote>
+
+<p>
+2. Use the following format anywhere you want a Tweet embedded
+</p>
+
+<blockquote><pre><code>
+&lt;script src="/path/to/oembed.js?tweet=https://twitter.com/dietrich/status/834597640411152384"&gt;&lt;/script&gt;
+</code></pre></blockquote>
+
+  The Tweet will be embedded in your page, right where you put the <code>&lt;script&gt;</code> tag.
+
+<h2>Example: Text Tweet</h2>
 <script defer src="oembed.js?tweet=https://twitter.com/dietrich/status/834085207502422021"></script>
 
-<h2>Video</h2>
-<script defer src="oembed.js?tweet=https://twitter.com/dietrich/status/792380133814444032"></script>
-
-<h2>Image</h2>
+<h2>Example: Image Tweet</h2>
 <script defer src="oembed.js?tweet=https://twitter.com/dietrich/status/834597640411152384"></script>
+
+<h2>Example: Video Tweet</h2>
+<script defer src="oembed.js?tweet=https://twitter.com/dietrich/status/792380133814444032"></script>
 
 </body>
 </html>
