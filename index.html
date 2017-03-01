@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Twitter inline oembed test</title>
+
+  <!-- Update your html tag to include the itemscope and itemtype attributes. -->
+  <!--<html itemscope itemtype="http://schema.org/Webpage">-->
+
+  <!-- Place this data between the <head> tags of your website -->
+  <title>Twitter Inline Oembed</title>
+  <meta name="description" content="Easily embed Tweets inline in your web pages." />
+
+  <!-- Schema.org markup (Google) -->
+  <meta itemprop="name" content="Twitter Inline Oembed">
+  <meta itemprop="description" content="Easily embed Tweets inline in your web pages.">
+  <meta itemprop="image" content="https://i.imgur.com/eTYcPJZ.png">
+
+  <!-- Twitter Card markup-->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@dietrich">
+  <meta name="twitter:title" content="Twitter Inline Oembed">
+  <meta name="twitter:description" content="Easily embed Tweets inline in your web pages.">
+  <meta name="twitter:creator" content="@dietrich">
+  <!-- Twitter summary card with large image must be at least 280x150px -->
+  <meta name="twitter:image" content="https://i.imgur.com/eTYcPJZ.png">
+  <meta name="twitter:image:alt" content="Easily embed Tweets inline in your web pages.">
+
+  <!-- Open Graph markup (Facebook, Pinterest) -->
+  <meta property="og:title" content="Twitter Inline Oembed" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://autonome.github.io/twitter-inline-oembed/" />
+  <meta property="og:image" content="https://i.imgur.com/eTYcPJZ.png" />
+  <meta property="og:description" content="Easily embed Tweets inline in your web pages." />
+  <meta property="og:site_name" content="Twitter Inline Oembed" />
+
+  <style type="text/css">
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, 
+				"Segoe UI", "Roboto", "Oxygen", 
+				"Ubuntu", "Cantarell", "Fira Sans", 
+				"Droid Sans", "Helvetica Neue", sans-serif;
+		}
+  </style>
+</head>
+<body>
+
+<h1>Twitter Inline Oembeds</h1>
+
+<h2>Text</h2>
+<script defer src="oembed.js?tweet=https://twitter.com/dietrich/status/834085207502422021"></script>
+
+<h2>Video</h2>
+<script defer src="oembed.js?tweet=https://twitter.com/dietrich/status/792380133814444032"></script>
+
+<h2>Image</h2>
+<script defer src="oembed.js?tweet=https://twitter.com/dietrich/status/834597640411152384"></script>
+
+</body>
+</html>

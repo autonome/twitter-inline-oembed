@@ -1,0 +1,23 @@
+{
+  "name": "twitter-inline-oembed",
+  "version": "0.0.1",
+  "description": "Easily embed Tweets inline in your web pages.",
+  "main": "oembed.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/autonome/twitter-inline-oembed.git"
+  },
+  "keywords": [
+    "twitter",
+    "oembed"
+  ],
+  "author": "Dietrich Ayala <autonome@gmail.com> (http://metafluff.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/autonome/twitter-inline-oembed/issues"
+  },
+  "homepage": "https://github.com/autonome/twitter-inline-oembed#readme"
+}

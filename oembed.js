@@ -1,46 +1,30 @@
-/*
-
-TODO: bugs
-
-* sometimes not styled
-
-TODO: features
-
-* support oembed api params https://dev.twitter.com/rest/reference/get/statuses/oembed
-* support embedded tweet params https://dev.twitter.com/web/embedded-tweets/parameters
-* option to place on page via selector
-
-TODO: release
-
-* package.json
-* CDNify
-* NPMify
-
-*/
+'use strict';
 
 (function() {
 
   var tweetURL = document.currentScript.src.split('?tweet=')[1];
-  var apiURL = 'https://publish.twitter.com/oembed?omit_script=1&url=';
-  var script = document.currentScript;
+  var apiURL = 'https://publish.twitter.com/oembed?url=';
+  var thisScript = document.currentScript;
 
   if (tweetURL) {
     embedTweet(tweetURL);
   }
 
-  function injectScript(url) {
+  function injectScript(url, defer, async, id) {
     var script = document.createElement('script');
-    script.defer = true;
+    script.defer = defer;
+    script.async = async;
     script.src = url;
+    if (id)
+      script.id = id;
     document.body.appendChild(script);
   }
 
   function jsonp(url, cb) {
-    var fnName = 'fn' + Date.now();
+    var fnName = 'fn' + Date.now(),
         prefixChar = (url.indexOf('?') != -1) ? '&' : '?';
     url += prefixChar + 'callback=' + fnName;
-    injectScript(url);
-    // racey?
+    injectScript(url, true);
     window[fnName] = function(result) { cb(result); };
   }
 
@@ -48,12 +32,20 @@ TODO: release
     var url = apiURL + tweetURL;
     jsonp(url, function(oembed) {
       var div = document.createElement('div');
-      div.innerHTML = oembed.html;
-      script.parentNode.insertBefore(div, script);
+      div.appendChild(createNode(oembed.html));
+      thisScript.parentNode.insertBefore(div, thisScript);
     });
-    if (!window['twttr']) {
-      injectScript('//platform.twitter.com/widgets.js');
-    }
+
+    // TODO: Racey. Widgets not styled when leaving it up to the
+    // oembed, or when only pulling in once.
+    //
+    // Doing this here, for each widget, is the only thing that
+    // works consistently. Ugh.
+    injectScript('//platform.twitter.com/widgets.js', true);
+  }
+
+  function createNode(htmlStr) {
+    return new DOMParser().parseFromString(htmlStr, 'text/html').body.firstChild;
   }
 
 })();
